@@ -5,11 +5,26 @@ master = Tk()
 master.title("2D Lerchs-Grossman Algorithm")
 
 def enterbtn():
+    
     global total_number_of_blocks
+
     number_of_blocks_in_X_dimension = X.get()
+    total_rows = int(number_of_blocks_in_X_dimension)
+
     number_of_blocks_in_Y_dimension = Y.get()
-    total_number_of_blocks = int(number_of_blocks_in_X_dimension) + int(number_of_blocks_in_Y_dimension)
+    total_columns = int(number_of_blocks_in_Y_dimension)
+
+    total_number_of_blocks = total_rows + total_columns
     messageVar.configure(text="Total number of blocks:" + str(total_number_of_blocks))
+
+    master.destroy()
+
+    second_window = Tk()
+    for i in range(total_rows):
+        for j in range(total_columns):
+            b = Entry(second_window, text="")
+            b.grid(row=i, column=j)
+    second_window.mainloop()
 
 Label(master, text="Enter the number of blocks for the X dimension:").grid(row=0)
 X = Entry(master)
