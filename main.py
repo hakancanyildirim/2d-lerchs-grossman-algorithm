@@ -2,6 +2,8 @@ from tkinter import *
 
 master = Tk()
 
+master.title("2D Lerchs-Grossman Algorithm")
+
 def enterbtn():
     global total_number_of_blocks
     number_of_blocks_in_X_dimension = X.get()
